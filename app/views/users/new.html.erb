@@ -1,0 +1,47 @@
+<div class="text-center">
+  <h1>ユーザの新規作成</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for(@user)do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'お名前' %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+        
+      <div class="form-group">
+        <div class="col-sm-4">
+          <div class="radio-inline">
+            <%= f.radio_button :sex, '男'%>
+            <%= f.label :sex, '男性' %>
+          </div>
+          <div class="radio-inline">
+            <%= f.radio_button :sex, '女'%>
+            <%= f.label :sex, '女性' %>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <%= f.label :age, '年代' %>
+          <%= f.select :age, [["10代","10代"],["20代","20代"],["30代","30代"],["40代","40代"],["50代","50代"]], class: "form-control" %>
+        </div>
+      </div>
+          
+
+      <div class="form-group">
+        <%= f.label :email, 'メール' %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'パスワード(確認）' %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="text-center">
+        <%= f.submit '登録する', class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
