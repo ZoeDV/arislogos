@@ -1,0 +1,15 @@
+<div class="text-center">
+  <h1>お題の作成ページ！</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for(@topic) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, size: "20x10", class: "form-control" %>
+      </div>
+      <div class="text-right col-sm-3 col-sm-offset-9">
+        <%= f.submit '投稿', class: "btn btn-lg btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>

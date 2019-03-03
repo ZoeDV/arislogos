@@ -6,4 +6,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :sex, presence: true
   has_secure_password
+  
+  has_many :topics
 end
