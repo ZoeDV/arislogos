@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
+    @posts = @topic.posts.order('created_at DESC').page(params[:page])
   end
 
   def new

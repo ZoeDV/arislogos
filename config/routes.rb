@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
   
   resources :topics, only: [:show, :new, :create]
+  
+  resources :posts, only: [:new, :create]
 end

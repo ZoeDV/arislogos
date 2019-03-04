@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h1>説明の作成ページ！</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="text-center">
+      <h2>お題：<%= @topic.content%></h2>
+    </div>
+    <%= form_for(@post) do |f| %>
+      <%= hidden_field_tag :topic_id, @topic.id %>
+      <div class="form-group">
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :content, size: "20x10", class: "form-control", placeholder: '100文字以下' %>
+      </div>
+      <div class="text-right col-sm-3 col-sm-offset-9">
+        <%= f.submit '投稿', class: "btn btn-lg btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -7,7 +7,7 @@
       </div>
       <div class="media-body">
         <div>
-          <span class="text-muted">posted at <%= topic.created_at %></span>
+          <span class="text-muted">posted at <%= topic.created_at %> by <%= topic.user.name %></span>
         </div>
         <div class="text-center">
           <h2><%= link_to topic.content, topic_path(topic)%></h2>

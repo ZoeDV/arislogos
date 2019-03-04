@@ -1,4 +1,4 @@
-<ul class="media-list">
+<div class="row">
     <div class="media">
       <div class="media-left">
         <p>位</p></ br>
@@ -14,7 +14,14 @@
         <div>
           ポスト
         </div>
-      
+      </div>
+      <div class="media-right">
+        <%= link_to '投稿', new_post_path(topic_id: @topic.id), class: 'btn btn-md btn-default' %>
+      </div>
+      <div class="text-center">
+        <% if @topic.posts %>
+          <%= render "posts/posts", posts: @posts %>
+        <% end %>
       </div>
     </div>
-</ul>
+</div>
