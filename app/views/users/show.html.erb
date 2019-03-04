@@ -1,7 +1,24 @@
 <div class="user-profile">
-  <div class="icen text-center">
-    <img src="..." alt="" class="img-circle">
+  <div class="profile-image text-center">
+    <% if @user.image? %>
+     <%= image_tag @user.image.thumb.url, class: "media-object img-circle " %>
+    <% else %>
+      <%= image_tag 'noimage.gif' %>
+    <% end %>
   </div>
+    <div class="dropdown">
+      <button type="button" class="btn btn-default dropdaown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+        プロフィール画像を登録<span class="caret"></span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= form_for(@user) do |f| %>
+          <%= f.file_field :image, class: "dropdown-item" %>
+          <%= f.submit '登録', class: "btn btn-sm dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
+    
+  
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>

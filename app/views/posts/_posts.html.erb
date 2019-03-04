@@ -5,7 +5,13 @@
         <div>
           <span class="text-muted">posted at <%= post.created_at %> by <%= post.user.name %></span>
         </div>
-        <img src="..." alt="">
+        <div class="post-image text-center">
+          <% if post.image? %>
+            <%= image_tag post.image.url, class: "media-object " %>
+          <% else %>
+            <%= image_tag 'noimage.gif' %>
+          <% end %>
+        </div>
         <div class="text-center">
           <%= post.content%>
         </div>

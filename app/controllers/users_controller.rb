@@ -21,9 +21,24 @@ class UsersController < ApplicationController
     end
   end
   
+  def update
+    @user = User.find(params[:id])
+    #@user.image = params[:image]
+    if @user.update(image_params)
+      flash[:success] = 'プロフィール画像を登録しました。'
+      redirect_to user_path(@user)
+    else
+      flash.now[:danger]='プロフィール画像の登録にしました。'
+      render user_path
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+  end
+  def image_params
+    params.require(:user).permit(:image)
   end
 end
