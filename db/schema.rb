@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190304082752) do
+ActiveRecord::Schema.define(version: 20190306053313) do
+
+  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_interests_on_post_id", using: :btree
+    t.index ["user_id", "post_id", "type"], name: "index_interests_on_user_id_and_post_id_and_type", unique: true, using: :btree
+    t.index ["user_id"], name: "index_interests_on_user_id", using: :btree
+  end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -42,6 +53,8 @@ ActiveRecord::Schema.define(version: 20190304082752) do
     t.string   "image"
   end
 
+  add_foreign_key "interests", "posts"
+  add_foreign_key "interests", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "topics", "users"

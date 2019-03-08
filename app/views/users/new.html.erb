@@ -11,14 +11,8 @@
         
       <div class="form-group">
         <div class="col-sm-4">
-          <div class="radio-inline">
-            <%= f.radio_button :sex, '男'%>
-            <%= f.label :sex, '男性' %>
-          </div>
-          <div class="radio-inline">
-            <%= f.radio_button :sex, '女'%>
-            <%= f.label :sex, '女性' %>
-          </div>
+          <label style="display: inline-block"><%= f.radio_button :sex, "男" %> 男性 </label>
+          <label><%= f.radio_button :sex, "女" %> 女性 </label>
         </div>
         <div class="col-sm-8">
           <%= f.label :age, '年代' %>

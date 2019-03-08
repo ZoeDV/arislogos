@@ -1,0 +1,13 @@
+<% if current_user.agree?(post) %>
+  <%= form_tag(interest_path(post.id), method: :delete) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Agree' %>
+    <%= submit_tag 'なるほど！', class: 'btn agree-on' %>
+  <% end %>
+<% else %>
+  <%= form_tag(interests_path) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Agree' %>
+    <%= submit_tag 'なるほど！', class: 'btn agree-off' %>
+  <% end %>
+<% end %>

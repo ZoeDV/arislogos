@@ -1,0 +1,2 @@
+class Agree < Interest
+end

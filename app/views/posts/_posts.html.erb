@@ -1,8 +1,8 @@
 <ul class="media-list">
   <% posts.each do |post| %>
     <li class="media">
-      <div class="media-body">
-        <div>
+      <div class="post media-body">
+        <div class="created-date">
           <span class="text-muted">posted at <%= post.created_at %> by <%= post.user.name %></span>
         </div>
         <div class="post-image text-center">
@@ -12,17 +12,18 @@
             <%= image_tag 'noimage.gif' %>
           <% end %>
         </div>
-        <div class="text-center">
+        <div class="post-content text-center">
           <%= post.content%>
         </div>
-        <div class="text-right">
-          <span class="badge badge-pill">いいね</span>
-          <span class="badge badge-pill">違うね</span>
-        </div>
-      
+        <% if logged_in? %>
+          <div class="post-buttons text-right">
+            <%= render "interests/agree_button", post: post %>
+            <%= post.agrees.count %>
+            <%= render "interests/disagree_button", post: post %>
+            <%= post.disagrees.count %>
+          </div>
+        <% end %>
       </div>
     </li>
   <% end %>
-  
-  <%= paginate posts %>
 </ul>

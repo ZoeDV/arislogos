@@ -1,0 +1,13 @@
+<% if current_user.disagree?(post) %>
+  <%= form_tag(interest_path(post.id), method: :delete) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Disagree' %>
+    <%= submit_tag '違うね！', class: 'btn disagree-on' %>
+  <% end %>
+<% else %>
+  <%= form_tag(interests_path) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Disagree' %>
+    <%= submit_tag '違うね！', class: 'btn disagree-off' %>
+  <% end %>
+<% end %>

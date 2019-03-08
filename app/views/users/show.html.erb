@@ -7,7 +7,7 @@
     <% end %>
   </div>
     <div class="dropdown">
-      <button type="button" class="btn btn-default dropdaown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+      <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
         プロフィール画像を登録<span class="caret"></span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -22,4 +22,6 @@
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>
+  
+  <%= link_to 'お題を作成', new_topic_path, class: "btn btn-lg btn-sucess" %>
 </div>

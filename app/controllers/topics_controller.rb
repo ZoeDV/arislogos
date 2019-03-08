@@ -4,6 +4,10 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @posts = @topic.posts.order('created_at DESC').page(params[:page])
+    @rank = params[:rank]
+    
+    @interest_sum = Topic.total_interest
+    
   end
 
   def new

@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :topics, only: [:show, :new, :create]
   
   resources :posts, only: [:new, :create]
+  
+  resources :interests, only: [:create, :destroy]
 end

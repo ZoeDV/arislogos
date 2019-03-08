@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-inverse navbar-static-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -16,7 +16,7 @@
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
             <li><%= link_to 'お題作成', new_topic_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'ログアウト', logout_path, method: :delete%><</li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
           <% else %>
             <li><%= link_to 'ユーザ登録', signup_path %></li>
             <li><%= link_to 'ログイン', login_path %></li>

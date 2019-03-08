@@ -1,24 +1,34 @@
-<ul class="media-list">
-  <% topics.each do |topic| %>
-    <li class="media">
-      <div class="media-left">
-        <p>位</p></ br>
-        <span class="badge badge-pill badge-primary">話題数</span>
-      </div>
-      <div class="media-body">
-        <div>
-          <span class="text-muted">posted at <%= topic.created_at %> by <%= topic.user.name %></span>
+<div class="row">
+  <ul class="media-list col-md-offset-2 col-md-8">
+    <% topics.each_with_index do |topic, index| %>
+      <li class="media topic">
+        <div class="media-left">
+          <p><%= index+1 %> 位</p></ br>
+          <span class="badge badge-pill badge-primary"><%= @interest_sum[topic.id] %></span>
         </div>
+        <div class="media-body">
+          <div class="created-date">
+            <span class="created-date text-muted">posted at <%= topic.created_at %> by <%= topic.user.name %></span>
+          </div>
+          <div class="topic-content text-center">
+            <h2><%= link_to topic.content, topic_path(topic, rank: (index+1)) %></h2>
+          </div>
+        </div>
+        <hr class="topic-divider" >
         <div class="text-center">
-          <h2><%= link_to topic.content, topic_path(topic)%></h2>
-        </div>
-        <div>
-          ポスト
+          このお題のトップ説明：
         </div>
       
-      </div>
-    </li>
-  <% end %>
+        <div class="">
+          <% if topic.posts.exists? %>
+            <%= render 'posts/posts', posts: topic.posts.order('created_at DESC').limit(3) %>
+          <% else %>
+            <p>まだ説明はありません。あなたが説明してみたら！</p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
   
-  <%= paginate topics %>
-</ul>
+    <%= paginate topics %>
+  </ul>
+</div>
