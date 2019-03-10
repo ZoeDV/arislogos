@@ -23,7 +23,7 @@
           <% if topic.posts.exists? %>
             <%= render 'posts/posts', posts: topic.posts.order('created_at DESC').limit(3) %>
           <% else %>
-            <p>まだ説明はありません。あなたが説明してみたら！</p>
+            <p class="text-center">まだ説明はありません。あなたが説明してみたら！</p>
           <% end %>
         </div>
       </li>

@@ -3,11 +3,13 @@
     <%= hidden_field_tag :post_id, post.id %>
     <%= hidden_field_tag :type, 'Disagree' %>
     <%= submit_tag '違うね！', class: 'btn disagree-on' %>
+    <div class="count disagree-on"><%= post.disagrees.count %></div>
   <% end %>
 <% else %>
   <%= form_tag(interests_path) do %>
     <%= hidden_field_tag :post_id, post.id %>
     <%= hidden_field_tag :type, 'Disagree' %>
     <%= submit_tag '違うね！', class: 'btn disagree-off' %>
+    <div class="count disagree-off"><%= post.disagrees.count %></div>
   <% end %>
 <% end %>

@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show, :new, :create, :update]
   
-  resources :topics, only: [:show, :new, :create]
+  resources :topics, only: [:show, :new, :create, :destroy]
   
-  resources :posts, only: [:new, :create]
+  resources :posts, only: [:new, :create, :destroy]
   
   resources :interests, only: [:create, :destroy]
 end

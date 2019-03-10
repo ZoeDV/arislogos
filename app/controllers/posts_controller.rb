@@ -20,6 +20,14 @@ class PostsController < ApplicationController
     end
   end
   
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:success] = '説明を削除しました。'
+    
+    redirect_back(fallback_location: root_path)
+  end
+  
   private
   
   def posts_params

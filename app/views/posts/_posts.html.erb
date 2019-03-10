@@ -16,11 +16,12 @@
           <%= post.content%>
         </div>
         <% if logged_in? %>
+          <% if post.user == current_user %>
+            <%= link_to '削除', post, method: :delete, data: {confirm: '本当に削除してよろしいですか?'}, class: 'delete-button post-buttons btn btn-danger text-left' %>
+          <% end %>
           <div class="post-buttons text-right">
             <%= render "interests/agree_button", post: post %>
-            <%= post.agrees.count %>
             <%= render "interests/disagree_button", post: post %>
-            <%= post.disagrees.count %>
           </div>
         <% end %>
       </div>

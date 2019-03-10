@@ -26,6 +26,14 @@ class TopicsController < ApplicationController
     end
   end
   
+  def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    flash[:success] = 'お題を削除しました。'
+    
+    redirect_to root_url
+  end
+  
   private
   
   def topics_params

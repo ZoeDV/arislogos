@@ -1,3 +1,4 @@
+<div class="row">
 <div class="media col-md-offset-2 col-md-8">
   <div class="media-left">
     <p><%= @rank  %> 位</p></ br>
@@ -10,17 +11,18 @@
     <div class="topic-content text-center">
       <h2><%= @topic.content %></h2>
     </div>
-    <div>
-      ポスト
-    </div>
   </div>
   <div class="media-right">
-    <%= link_to '投稿', new_post_path(topic_id: @topic.id), class: 'post-button btn btn-md btn-default' %>
+    <% if @topic.user == current_user %>
+      <%= link_to 'お題を削除', @topic, method: :delete, data: {confirm: '本当に削除してよろしいですか?'}, class: 'delete-button btn btn-danger' %>
+    <% end %>
+    <%= link_to '説明を投稿', new_post_path(topic_id: @topic.id), class: 'post-button btn btn-md btn-default' %>
   </div>
-  <div class="text-center">
+  <div>
     <% if @topic.posts %>
       <%= render "posts/posts", posts: @posts %>
     <% end %>
     <%= paginate @posts %>
   </div>
+</div>
 </div>

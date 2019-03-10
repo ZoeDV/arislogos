@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :topic
   
-  has_many :interests
+  has_many :interests, dependent: :destroy
   has_many :interested_users, through: :interests
   
   has_many :agrees
