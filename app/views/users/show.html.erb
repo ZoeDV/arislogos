@@ -1,4 +1,4 @@
-<div class="user-profile">
+<div class="user-profile col-md-offset-2 col-md-8">
   <div class="profile-image text-center">
     <% if @user.image? %>
      <%= image_tag @user.image.thumb.url, class: "media-object img-circle " %>
@@ -6,22 +6,26 @@
       <%= image_tag 'noimage.gif' %>
     <% end %>
   </div>
-    <div class="dropdown">
-      <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-        プロフィール画像を登録<span class="caret"></span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= form_for(@user) do |f| %>
-          <%= f.file_field :image, class: "dropdown-item" %>
-          <%= f.submit '登録', class: "btn btn-sm dropdown-item" %>
-        <% end %>
-      </div>
-    </div>
-    
-  
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>
+  <div class="profile">
+    <%= link_to 'お題を作成', new_topic_path, class: "topic-create-btn btn btn-lg btn-success" %>
+  <div class="edit-image btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      プロフィール画像を登録<span class="caret"></span>
+    </button>
+    <div class="dropdown-menu rightMenu" aria-labelledby="dropdownMenuButton">
+      <%= form_for(@user) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <%= f.file_field :image, class: "dropdown-item" %>
+        <%= f.hidden_field :image_cache %>
+        <%= f.submit '登録', class: "btn btn-sm dropdown-item" %>
+      <% end %>
+    </div>
+  </div>
   
-  <%= link_to 'お題を作成', new_topic_path, class: "btn btn-lg btn-sucess" %>
+  </div>
+  
+  
 </div>

@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   
   def show
-    @user = User.find(params[:id])
+    if @user == current_user 
+      @user = User.find(params[:id])
+    else
+      redirect_to root_url
+    end
   end
 
   def new
@@ -23,22 +27,23 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    #@user.image = params[:image]
-    if @user.update(image_params)
-      flash[:success] = 'プロフィール画像を登録しました。'
-      redirect_to user_path(@user)
+    if @user == current_user 
+      @user.image.cache! unless @user.image.blank?
+      if @user.update(user_params)
+        flash[:success] = 'プロフィール画像を登録しました。'
+        redirect_to @user
+      else
+        flash.now[:danger]='プロフィール画像の登録に失敗しました。'
+        render user_path
+      end
     else
-      flash.now[:danger]='プロフィール画像の登録にしました。'
-      render user_path
+      redirect_to root_url
     end
   end
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex, :age)
-  end
-  def image_params
-    params.require(:user).permit(:image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex, :age, :image, :image_cache)
   end
 end

@@ -19,48 +19,23 @@ body {
   font-family: Meiryo;
   color: #636363;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
 footer {
   background-color: #345281;
   color: #f2f2f2;
-  margin-top: 30px;
   height: 40px;
+  clear: both;
+  position: relative;
+  margin-top: auto;
 }
 footer .text-center {
   padding-top: 10px;
   
 }
-/*.column {
-  float: left;
-  padding: 10px;
-}
-.left{
-  width: 10%;
-}
-.right {
-  width: 10%;
-  margin-left: -100px;
-  position: fixed;
-  top: 100px;
-  right: 100px;
-}
-.right p {
-  margin-right: -150px;
-  background-color: #F3F5FB;
-  border-radius: 16px;
-  font-size: 14px;
-  padding: 5px 0 5px 5px;
-  height: 300px;
-  text-align: center;
-}
-
-.middle {
-  width: 80%;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}*/
 
 /*ナビバー*/
 .navbar {
@@ -145,7 +120,7 @@ footer .text-center {
   width: 100%;
   height: 354px;
   object-fit: contain;
-  max-width: 350px;
+  max-width: 500px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -157,6 +132,11 @@ footer .text-center {
 }
 
 /*なるほどね　違うね　ボタン*/
+.post-buttons {
+  display: inline-block;
+  float: right;
+  margin-bottom: 5px;
+}
 .post-buttons form{
   display: inline-block;
   font-size: 0;
@@ -168,15 +148,19 @@ footer .text-center {
   padding: 4px 2px 2px 4px;
   text-align: center;
   text-decoration: none;
-  margin: -50px 0 5px;
   font-size: 13px;
   border-radius: 0;
   border-radius: 0.3em 0 0 0.3em / 0.3em 0 0 0.3em;
+  display: inline-block;
+  
 }
 .delete-button {
-  margin: 5px 0 0 0;
-  height: 26px;
-  padding-top: 4px;
+  float: left;
+  display: inline-block;
+}
+.delete-button a {
+  height: 25px;
+  padding-top: 3px;
 }
 .agree-on, .agree-on:hover, .agree-count {
   background-color: #1885f2;
@@ -207,25 +191,45 @@ footer .text-center {
   width: 20px;
   border-left: 1px solid #000000;
   display: inline-block;
-  margin: -50px 0 5px;
   vertical-align: middle;
   text-align: center;
   padding-top: 4px;
   border-radius: 0 0.3em 0.3em 0 / 0 0.3em 0.3em 0;
+  display: inline-block;
 }
 
 
 /*プロフィールページ*/
+.profile {
+  text-align: center;
+  margin-top: 15px;
+}
+.edit-image {
+  margin-bottom: 5px;
+}
 .profile-image img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
-#dropdownMenuButton{
-  display: block;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
+.topic-create-btn {
+  height: 32px;
+  padding-top: 5px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.form-group label {
+  display: inline;
+  margin-left: 3px;
+}
+.form-group input {
+  margin-top: 3px;
+}
+.form-group div {
+  display: inline;
+  text-align: center;
+  margin-bottom: 5px;
 }

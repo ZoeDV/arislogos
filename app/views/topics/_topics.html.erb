@@ -8,7 +8,7 @@
         </div>
         <div class="media-body">
           <div class="created-date">
-            <span class="created-date text-muted">posted at <%= topic.created_at %> by <%= topic.user.name %></span>
+            <span class="created-date text-muted">posted <%= distance_of_time_in_words_to_now(topic.created_at) %> ago by <%= topic.user.name %></span>
           </div>
           <div class="topic-content text-center">
             <h2><%= link_to topic.content, topic_path(topic, rank: (index+1)) %></h2>

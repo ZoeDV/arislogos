@@ -7,6 +7,7 @@
       <h2>お題：<%= @topic.content%></h2>
     </div>
     <%= form_for(@post) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <%= hidden_field_tag :topic_id, @topic.id %>
       <div class="form-group">
         <%= f.file_field :image, class: "form-control" %>

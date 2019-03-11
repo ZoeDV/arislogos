@@ -6,7 +6,7 @@
   </div>
   <div class="media-body">
     <div>
-      <span class="text-muted">posted at <%= @topic.created_at %></span>
+      <span class="created-date text-muted">posted <%= distance_of_time_in_words_to_now(@topic.created_at) %> ago</span>
     </div>
     <div class="topic-content text-center">
       <h2><%= @topic.content %></h2>

@@ -3,7 +3,7 @@
     <li class="media">
       <div class="post media-body">
         <div class="created-date">
-          <span class="text-muted">posted at <%= post.created_at %> by <%= post.user.name %></span>
+          <span class="text-muted">posted <%= distance_of_time_in_words_to_now(post.created_at) %> ago by <%= post.user.name %></span>
         </div>
         <div class="post-image text-center">
           <% if post.image? %>
@@ -17,7 +17,7 @@
         </div>
         <% if logged_in? %>
           <% if post.user == current_user %>
-            <%= link_to '削除', post, method: :delete, data: {confirm: '本当に削除してよろしいですか?'}, class: 'delete-button post-buttons btn btn-danger text-left' %>
+            <div class="delete-button"><%= link_to '削除', post, method: :delete, data: {confirm: '本当に削除してよろしいですか?'}, class: 'post-buttons btn btn-danger text-left' %></div>
           <% end %>
           <div class="post-buttons text-right">
             <%= render "interests/agree_button", post: post %>
