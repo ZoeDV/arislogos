@@ -56,3 +56,11 @@ gem 'kaminari'
 
 gem 'carrierwave'
 gem 'rmagick', '~> 2.16.0'
+
+group :production do
+  gem 'pg', '0.21.0'
+end
+
+gem 'cloudinary'
+
+gem 'dotenv-rails'
