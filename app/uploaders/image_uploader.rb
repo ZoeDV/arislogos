@@ -17,6 +17,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     version :thumb do
       process :resize_to_fit => [300, 300]
     end
+    
+    def extension_whitelist
+     %w(jpg jpeg gif png)
+    end
   
     #　「storage :file」　が有効になっているとCloudinaryに画像アップロードできない　↓
   
