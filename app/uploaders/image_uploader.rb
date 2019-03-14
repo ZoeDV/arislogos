@@ -15,7 +15,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   
     version :thumb do
-      process :resize_to_fit => [50, 50]
+      process :resize_to_fit => [300, 300]
     end
   
     #　「storage :file」　が有効になっているとCloudinaryに画像アップロードできない　↓
@@ -40,7 +40,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     
     # サムネイルを生成する設定
     version :thumb do
-      process resize_to_limit: [50,50]
+      process resize_to_limit: [300,300]
     end
   
     # Choose what kind of storage to use for this uploader:

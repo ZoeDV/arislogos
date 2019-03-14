@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   
   def show
-    if @user == current_user 
-      @user = User.find(params[:id])
-    else
+    @user = User.find(params[:id])
+    unless @user == current_user
       redirect_to root_url
     end
   end
