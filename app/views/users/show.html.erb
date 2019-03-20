@@ -11,20 +11,29 @@
   </div>
   <div class="profile">
     <%= link_to 'お題を作成', new_topic_path, class: "topic-create-btn btn btn-lg btn-success" %>
-  <div class="edit-image btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      プロフィール画像を登録<span class="caret"></span>
-    </button>
-    <div class="dropdown-menu rightMenu" aria-labelledby="dropdownMenuButton">
-      <%= form_for(@user) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-        <%= f.file_field :image, class: "dropdown-item" %>
-        <%= f.hidden_field :image_cache %>
-        <%= f.submit '登録', class: "btn btn-sm dropdown-item" %>
-      <% end %>
+    <div class="edit-image btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        プロフィール画像を登録<span class="caret"></span>
+      </button>
+      <div class="dropdown-menu rightMenu" aria-labelledby="dropdownMenuButton">
+        <%= form_for(@user) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <%= f.file_field :image, class: "dropdown-item" %>
+          <%= f.hidden_field :image_cache %>
+          <%= f.submit '登録', class: "btn btn-sm dropdown-item" %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  
+    <div class="panel-container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4>なるほどね！ポスト</h4>
+        </div>
+        <div class="panel-body">
+          <%= render 'posts/posts', posts: @agree_posts %>
+        </div>
+      </div>
+    </div>
   </div>
   
   

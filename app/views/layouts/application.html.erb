@@ -19,13 +19,17 @@
 
   <body>
     <div class="wrapper">
-    <%= render 'layouts/navbar' %>
     
+    <%= render 'layouts/navbar' %>
+    <div class="overlay">
+      <div class="popup-content"></div>
+    </div>
     <div class="container">
     <%= render 'layouts/flash_messages' %>
     <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
     </div>
+    <a href="#" class="back-to-top">▲</a>
   </body>
 </html>

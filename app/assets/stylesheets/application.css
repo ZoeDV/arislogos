@@ -233,3 +233,84 @@ footer .text-center {
   text-align: center;
   margin-bottom: 5px;
 }
+
+.panel-container {
+  margin-top: 10px;
+}
+.panel-container .panel {
+  border-color: #345281;
+}
+.panel-container .panel-heading {
+  padding: 5px;
+  background-color: #345281;
+}
+
+
+
+/* トップに戻るボタン */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  display: none;
+  width: 40px;
+  height: 40px;
+
+  background-color: #f0f0f0;
+  color: #333;
+  opacity: 0.6;
+
+  /* 透明度をふわっと変える演出 */
+  transition: opacity 2.5s;
+
+  font-size: 1.6rem;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* マウスを乗せた時に透明度を変える */
+.back-to-top:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* 後ろを覆う黒い幕 */
+.overlay {
+  /* 画面いっぱいに表示 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* 他のコンテンツより上のレイヤーに表示 */
+  z-index: 10000;
+
+  /* 初期状態では非表示 */
+  display: none;
+
+  /* 透けた黒色にする */
+  background-color:rgba(0, 0, 0, 0.8);
+
+  /* マウスカーソルを手の形にする */
+  cursor: pointer;
+}
+
+/* 拡大写真の表示エリア */
+.popup-content {
+  /* 60x60で左右中央に表示する */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  text-align: center;
+
+  /* 枠をつける */
+  /*padding: 4px; */
+  background-color: #ccc;
+}

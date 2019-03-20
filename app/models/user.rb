@@ -15,7 +15,7 @@ class User < ApplicationRecord
   #has_many :commented_topics, through: :posts, source: :topic
   
   has_many :interests
-  has_many :interested_posts, through: :interests
+  has_many :interested_posts, through: :interests, source: :post
   
   has_many :agrees
   has_many :agree_posts, through: :agrees, source: :post
